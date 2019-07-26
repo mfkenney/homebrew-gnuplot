@@ -23,7 +23,7 @@ class GnuplotAqua < Formula
   def install
     ENV['CFLAGS'] = '-F/Library/Frameworks'
     ENV['LDFLAGS'] = '-F/Library/Frameworks'
-    ENV['SDK_PREFIX'] = '/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk'
+    ENV['SDKROOT'] = '/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk'
     ENV['MACOS_DEPLOYMENT_TARGET'] = '10.14'
 
     args = %W[
