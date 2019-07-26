@@ -41,8 +41,8 @@ class GnuplotAqua < Formula
     system "./prepare" if build.head?
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
-    system "make", "CFLAGS=-F/Library/Frameworks",
-           "LDFLAGS=-F/Library/Frameworks"
+    system "make", "CFLAGS='-ObjC -F/Library/Frameworks'",
+           "LDFLAGS='-ObjC -F/Library/Frameworks'"
     system "make", "install"
   end
 
