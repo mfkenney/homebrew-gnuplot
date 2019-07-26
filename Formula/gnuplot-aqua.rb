@@ -23,6 +23,9 @@ class GnuplotAqua < Formula
   def install
     ENV['CFLAGS'] = '-F/Library/Frameworks'
     ENV['LDFLAGS'] = '-F/Library/Frameworks'
+    ENV['SDK_PREFIX'] = '/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk'
+    ENV['MACOS_DEPLOYMENT_TARGET'] = '10.14'
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
