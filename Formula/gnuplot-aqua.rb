@@ -21,6 +21,8 @@ class GnuplotAqua < Formula
   depends_on "readline"
 
   def install
+    ENV['CFLAGS'] = '-F/Library/Frameworks'
+    ENV['LDFLAGS'] = '-F/Library/Frameworks'
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
