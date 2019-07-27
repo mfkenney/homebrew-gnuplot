@@ -30,7 +30,7 @@ class GnuplotAqua < Formula
   depends_on "lua"
   depends_on "pango"
   depends_on "readline"
-  depends_on AquaRequirement
+
   def install
     ENV['CFLAGS'] = "-ObjC -F/Library/Frameworks"
     ENV['LDFLAGS'] = "-ObjC -F/Library/Frameworks"
