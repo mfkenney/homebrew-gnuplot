@@ -15,7 +15,7 @@ class GnuplotAqua < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gd"
-  depends_on "libcerf"
+  depends_on "aquaterm"
   depends_on "lua"
   depends_on "pango"
   depends_on "readline"
