@@ -1,3 +1,15 @@
+class AquaRequirement < Requirement
+  fatal true
+
+  satisfy(:build_env => false) { which("aquaterm") }
+
+  def message; <<~EOS
+    Aquaterm is required; install it via:
+      brew cask install aquaterm
+    EOS
+  end
+end
+
 class GnuplotAqua < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
@@ -15,11 +27,10 @@ class GnuplotAqua < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gd"
-  depends_on "aquaterm"
   depends_on "lua"
   depends_on "pango"
   depends_on "readline"
-
+  depends_on AquaRequirement
   def install
     ENV['CFLAGS'] = "-ObjC -F/Library/Frameworks"
     ENV['LDFLAGS'] = "-ObjC -F/Library/Frameworks"
