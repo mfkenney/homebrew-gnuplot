@@ -21,8 +21,8 @@ class GnuplotAqua < Formula
   depends_on "readline"
 
   def install
-    ENV['CFLAGS'] = '-F/Library/Frameworks'
-    ENV['LDFLAGS'] = '-F/Library/Frameworks'
+    ENV['CFLAGS'] = "-ObjC -F/Library/Frameworks"
+    ENV['LDFLAGS'] = "-ObjC -F/Library/Frameworks"
     ENV['SDKROOT'] = '/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk'
     ENV['MACOS_DEPLOYMENT_TARGET'] = '10.14'
 
@@ -41,8 +41,9 @@ class GnuplotAqua < Formula
     system "./prepare" if build.head?
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
-    system "make", "CFLAGS='-ObjC -F/Library/Frameworks'",
-           "LDFLAGS='-ObjC -F/Library/Frameworks'"
+    system "make",
+           "CFLAGS=#{ENV.cflags}",
+           "LDFLAGS=#{ENV.ldflags}"
     system "make", "install"
   end
 
