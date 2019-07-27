@@ -32,8 +32,8 @@ class GnuplotAqua < Formula
   depends_on "readline"
 
   def install
-    ENV['CFLAGS'] = "-ObjC -framework AquaTerm -F/Library/Frameworks"
-    ENV['LDFLAGS'] = "-ObjC -framework AquaTerm -F/Library/Frameworks"
+    ENV['CFLAGS'] = "-ObjC -framework AquaTerm -framework Foundation -F/Library/Frameworks"
+    ENV['LDFLAGS'] = "-ObjC -framework AquaTerm -framework Foundation -F/Library/Frameworks"
     ENV['SDKROOT'] = '/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk'
     ENV['MACOS_DEPLOYMENT_TARGET'] = '10.14'
 
